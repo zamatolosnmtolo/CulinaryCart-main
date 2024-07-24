@@ -5,25 +5,20 @@
     box-sizing: border-box;
 }
 
-/* Ensure HTML and body take up the full height */
-html, body {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
+/* Body styles */
+body {
+    font-family: 'poppins', sans-serif;
     background-color: #f7f7f7;
     color: #333;
-}
-
-/* Flexbox layout for body */
-body {
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Main content styles */
 .main-content {
     flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Navbar styles */
@@ -90,7 +85,7 @@ body {
 /* Hero section styles */
 .hero {
     text-align: center;
-    padding: 80px 0 0; /* Adjust the top padding to account for the fixed navbar */
+    padding: 0;
 }
 
 .hero-text h2 {
@@ -207,17 +202,6 @@ footer {
 footer p {
     margin: 0;
     font-size: 14px;
-}
-
-.social-icons {
-    margin-top: 10px;
-}
-
-.social-icon {
-    margin: 0 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
 }
 
 /* Media queries */
