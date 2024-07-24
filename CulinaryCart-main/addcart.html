@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Cart</title>
+  <style>
+    /* CSS styles */
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+     
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+     
+    header {
+      background-color: #1eb389;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+     
+    .logo img {
+      width: 50px;
+    }
+     
+    .nav {
+      margin-top: 20px;
+    }
+     
+    .nav li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+     
+    .nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #1eb389;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #12825d;
+    }
+
+    #menu {
+      padding: 20px;
+    }
+
+    .category {
+      margin-bottom: 40px;
+    }
+
+    .meal {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .quantity-selector button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .quantity-selector input {
+      width: 50px;
+      text-align: center;
+      margin: 0 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #shopping-cart {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #cart-items {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    #cart-items li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #total-cost {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .checkout-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="images/culinaryicon.png" alt="Food Cart Logo">
+      </div>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutpage.html">About Us</a></li>
+        <li><a href="contactpage.html">Contact Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a class="nav-link" href="#"><img src="images/contact.jpg"></a></li>
+        <li><a class="nav-link" href="/cart.html"><img src="images/cart.jpg"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="menu">
+    <h2>Our Delicious Menu</h2>
+    <div class="category">
+      <h3>Breakfast</h3>
+      <div class="meal">
+        <h4>Eggs Benedict</h4>
+        <p>Classic hollandaise sauce</p>
+        <p>Price: $10.99</p>
+        <div class="quantity-selector">
+          <button onclick="decreaseQuantity()">-</button>
+          <input type="text" id="quantity1" value="1" onchange="updateCartDisplay()">
+          <button onclick="increaseQuantity()">+</button>
+        </div>
+        <button onclick="addToCart('Eggs Benedict', 10.99)">Add to Cart</button>
+      </div>
+      <!-- Add more meals in this category -->
+    </div>
+
+    <!-- Repeat the above structure for other categories: Lunch, Dinner, Snacks, Desserts, Drinks -->
+  </div>
+
+  <div id="shopping-cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-cost">Total Cost: $0.00</p>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    <button onclick="clearCart()">Clear Cart</button>
+  </div>
+
+  <script>
+   let cartItems = [];
+  let totalCost = 0;
+
+  function addToCart(name, price) {
+    const quantity = parseInt(document.getElementById('quantity1').value);
+
+    for (let i = 0; i < quantity; i++) {
+      cartItems.push({ name, price });
+    }
+
+    updateCartDisplay();
+  }
+
+  function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    updateCartDisplay();
+  }
+
+  function clearCart() {
+    cartItems = [];
+    totalCost = 0;
+    updateCartDisplay();
+  }
+
+  function updateCartDisplay() {
+    const cartItemsList = document.getElementById('cart-items');
+    cartItemsList.innerHTML = '';
+    totalCost = 0;
+
+    cartItems.forEach((item, index) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.onclick = () => removeFromCart(index);
+
+      listItem.appendChild(removeButton);
+      cartItemsList.appendChild(listItem);
+
+      totalCost += item.price;
+    });
+
+    document.getElementById('total-cost').textContent = `Total Cost: $${totalCost.toFixed(2)}`;
+  }
+
+  function increaseQuantity() {
+    let quantityInput = document.getElementById('quantity1');
+    let quantity = parseInt(quantityInput.value);
+    quantityInput.value = quantity + 1;
+    updateCartDisplay();
+  }
+
+  function decreaseQuantity() {
+    let quantityInput = document.getElementById('quantity1');
+    let quantity = parseInt(quantityInput.value);
+    if (quantity > 1) {
+      quantityInput.value = quantity - 1;
+      updateCartDisplay();
+    }
+  }
+
+  function checkout() {
+    alert('Checkout functionality will be implemented later.');
+  }
+  </script>
+</body>
+</html>

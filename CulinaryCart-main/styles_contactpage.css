@@ -1,0 +1,252 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 80px;
+}
+
+header {
+    background-color: #B1D8B7;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #189AB4;
+    font-size: 16px;
+}
+
+/* Single Page Hero Header Start */
+.bg-breadcrumb {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/fast-and-easy-pics.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 160px 0 60px 0;
+}
+
+.bg-breadcrumb h3 {
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-right: -800px;
+}
+
+.bg-breadcrumb p {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    color: #fff;
+    margin-right: -600px;
+}
+
+/* Contact Start */
+.contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/alina-karpenko-jH1PBHevj38-unsplash.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.our-text {
+    opacity: 0;
+}
+
+.page {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    font-size: 18px;
+    color: #4CAF50;
+    margin-bottom: 5px;
+    display: block;
+    margin-right: 85%;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#message {
+    width: 100%;
+    padding: 10%;
+    border-radius: 5px;
+    border-radius: solid #ccc;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page_ label {
+    color: black;
+    font-size: 20px;
+}
+
+.page_ .button {
+    color: black;
+}
+
+.page_ .button:hover {
+    background: #B1D8B7;
+}
+
+/* How It Works section styles */
+.how-it-works {
+    background-color: #eaf7eb;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.step i:hover {
+    color: #f4d35e;
+}
+
+.step i {
+    font-size: 36px;
+    color: #5cb85c;
+}
+
+.step h3 {
+    margin-top: 20px;
+}
+
+/* Map container */
+.map-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.map-container iframe {
+    height: 400px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Footer Start */
+.footer .footer-item a {
+    line-height: 35px;
+    color: var(--bs-body);
+    transition: 0.5s;
+}
+
+.footer .footer-item p {
+    line-height: 35px;
+}
+
+.footer .footer-item a:hover {
+    letter-spacing: 2px;
+    color: var(--bs-primary);
+}
+
+/* copyright Start */
+footer {
+    background-color: #5cb85c;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.social-icon:hover {
+    color: #f4d35e;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
